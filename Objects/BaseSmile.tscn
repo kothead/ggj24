@@ -1,22 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4go3ap0ka8qe"]
+[gd_scene load_steps=5 format=3 uid="uid://b4go3ap0ka8qe"]
 
 [ext_resource type="Script" path="res://Objects/BaseSmile.gd" id="1_5nst3"]
+[ext_resource type="Texture2D" uid="uid://bwuoxmqqhk1c1" path="res://Assets/Images/1F610_color.png" id="2_3bwh3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_svv1r"]
-radius = 214.14
+radius = 209.0
 
-[node name="BaseSmile" type="Node2D" groups=["droppable"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_uevym"]
+radius = 209.0
+
+[node name="BaseSmile" type="CharacterBody2D" groups=["smiles"]]
+collision_mask = 2
+input_pickable = true
 script = ExtResource("1_5nst3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_svv1r")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3bwh3")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_uevym")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

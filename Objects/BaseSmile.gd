@@ -1,17 +1,22 @@
-extends Node2D
+extends CharacterBody2D
 
-var draggable: bool = false
-var offset: Vector2
+const TIME_TO_DROP_WITHOUT_MOUSE = 0.2
+const SHAKE_TIME = 0.5
+const SHAKE_SPEED_THRESHOLD: int = 500
+
+var dragging: bool = false
+var previous_mouse_position: Vector2
+var mouse_left_for: float = 0
+var mouse_on = false
 
 var x_speeds: Array = []
 var y_speeds: Array = []
 var previous_position: Vector2
-
-var SHAKE_TIME = 0.5
-var SHAKE_SPEED_THRESHOLD: int = 500
-
 var is_shaking = false
-	
+
+@onready var sprite_2d = $Sprite2D
+@onready var area_2d = $Area2D
+
 @export_file("*.png") var image_path: String
 
 signal intersected(bodies: Array)
@@ -20,16 +25,17 @@ signal stop_shaking(body: Node)
 
 func _ready() -> void:
 	var new_texture = load(image_path)
-	$Sprite2D.set_texture(new_texture)
+	sprite_2d.set_texture(new_texture)
+	scale = Vector2(0.116, 0.116)
 	previous_position = position
 	
 
 func set_texture(image_path: String) -> void:
 	var new_texture = load(image_path)
-	$Sprite2D.set_texture(new_texture)
+	sprite_2d.set_texture(new_texture)
 	
 
-func detect_shaking(delta: float, distance: float, speeds: Array):
+func process_shaking(delta: float, distance: float, speeds: Array):
 	for i in range(len(speeds) - 1, -1, -1):
 		var speed = speeds[i]
 		speed[1] += delta
@@ -44,8 +50,25 @@ func detect_shaking(delta: float, distance: float, speeds: Array):
 		(previus_speed == null  \
 		or sign(previus_speed) != sign(speed)):
 			speeds.append([speed, 0])
+
+
+func _physics_process(delta):
+	if dragging:
+		if mouse_left_for > TIME_TO_DROP_WITHOUT_MOUSE:
+			on_drop()
+		else:
+			var mouse_position = get_global_mouse_position()
+			velocity = (mouse_position - previous_mouse_position) / delta
+			previous_mouse_position = mouse_position
+			move_and_slide()
+
+func detect_shaking(delta: float):
+	var dx = position.x - previous_position.x
+	var dy = position.y - previous_position.y
+	process_shaking(delta, dx, x_speeds)
+	process_shaking(delta, dy, y_speeds)
 			
-	if len(speeds) >= 3:
+	if len(x_speeds) >= 3 || len(y_speeds) >= 3:
 		if not is_shaking:
 			is_shaking = true
 			shaking.emit(self)
@@ -55,48 +78,42 @@ func detect_shaking(delta: float, distance: float, speeds: Array):
 			is_shaking = false
 			stop_shaking.emit(self)
 			print("I'm not shaking anymore")
+			
+	previous_position = position
 
-	
+
 func _process(delta: float) -> void:
-	var dx = position.x - previous_position.x
-	var dy = position.y - previous_position.y
-	detect_shaking(delta, dx, x_speeds)
-	detect_shaking(delta, dy, y_speeds)
-	previous_position = position	
+	if not mouse_on:
+		mouse_left_for += delta
 	
-	if draggable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		global_position = get_global_mouse_position() - offset
-	
-	
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	detect_shaking(delta)
+
+
+func _on_mouse_entered():
+	mouse_on = true
+	mouse_left_for = 0
+
+
+func _on_mouse_exited():
+	mouse_on = false
+
+
+func on_drop():
+	dragging = false
+	global.is_dragging = false
+	for area in area_2d.get_overlapping_areas():
+		var bodies: Array = []
+		bodies.append(self)
+		if area.get_parent().is_in_group("smiles"):
+			bodies.append(area.get_parent())
+		intersected.emit(bodies)
+
+func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if not global.is_dragging:
 				global.is_dragging = true
-				draggable = true
-				offset = get_global_mouse_position() - global_position
+				dragging = true
+				previous_mouse_position = get_global_mouse_position()
 		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
-			global.is_dragging = false
-			draggable = false
-			for area in $Area2D.get_overlapping_areas():
-				var bodies: Array = []
-				bodies.append(self)
-				if area.get_parent().is_in_group("droppable"):
-					bodies.append(area.get_parent())
-				intersected.emit(bodies)
-
-
-func _on_area_2d_mouse_entered() -> void:
-	if not global.is_dragging:
-		scale = Vector2(1.05, 1.05)
-
-
-func _on_area_2d_mouse_exited() -> void:
-	print("exited")
-	if not global.is_dragging:
-		scale = Vector2(1, 1)
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(body.name)
-	
+			on_drop()

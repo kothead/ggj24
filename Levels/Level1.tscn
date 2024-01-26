@@ -38,38 +38,40 @@ text = "Finished"
 position = Vector2(253, 238)
 image_path = "res://Assets/Images/1F610_color.png"
 
-[node name="BaseSmile2" parent="." instance=ExtResource("2_6gosq")]
-position = Vector2(725, 177)
-image_path = "res://Assets/Images/1F3AE_color.png"
-
 [node name="Walls" type="Node2D" parent="."]
 position = Vector2(-108, 276)
 
 [node name="LeftWall" type="StaticBody2D" parent="Walls"]
 position = Vector2(361, -38)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
 position = Vector2(-361, 38)
 shape = SubResource("RectangleShape2D_ewshy")
 
 [node name="TopWall" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]
 position = Vector2(587.625, -330.75)
 shape = SubResource("RectangleShape2D_xyf56")
 
 [node name="RightWall" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
 position = Vector2(1121, -30)
 shape = SubResource("RectangleShape2D_thahg")
 
 [node name="BottomWall" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
 position = Vector2(593, 314)
 shape = SubResource("RectangleShape2D_ny22w")
 
+[node name="BaseSmile2" parent="." instance=ExtResource("2_6gosq")]
+image_path = "res://Assets/Images/1F3AE_color.png"
+
 [connection signal="pressed" from="NextOverlay/Button" to="." method="_on_button_pressed"]
 [connection signal="intersected" from="BaseSmile" to="." method="_on_base_smile_intersected"]
-[connection signal="intersected" from="BaseSmile2" to="." method="_on_base_smile_intersected"]
