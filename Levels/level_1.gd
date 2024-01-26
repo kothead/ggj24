@@ -24,6 +24,7 @@ func _on_base_smile_intersected(bodies: Array) -> void:
 	for body in bodies:
 		remove_child(body)
 	var new_smile = base_smile_packed.instantiate()
-	new_smile.set_texture("res://Assets/Images/1F923_color.png")
+	new_smile.image_path = "res://Assets/Images/1F923_color.png"
 	new_smile.set_position(get_global_mouse_position())
+	add_child(new_smile)
 	
