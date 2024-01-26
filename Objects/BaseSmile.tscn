@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4go3ap0ka8qe"]
+
+[ext_resource type="Script" path="res://Objects/BaseSmile.gd" id="1_5nst3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_svv1r"]
+radius = 214.14
+
+[node name="BaseSmile" type="Node2D" groups=["droppable"]]
+script = ExtResource("1_5nst3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_svv1r")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

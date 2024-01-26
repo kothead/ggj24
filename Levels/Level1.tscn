@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c633s7nk7hc4w"]
+[gd_scene load_steps=3 format=3 uid="uid://c633s7nk7hc4w"]
 
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_sqsdf"]
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="2_6gosq"]
 
-[node name="Gameplay" type="Node2D"]
+[node name="Level" type="Node2D"]
 script = ExtResource("1_sqsdf")
 
 [node name="Level" type="Node2D" parent="."]
@@ -20,5 +21,11 @@ offset_top = 43.0
 offset_right = 76.0
 offset_bottom = 74.0
 text = "Finished"
+
+[node name="BaseSmile" parent="." instance=ExtResource("2_6gosq")]
+image_path = "res://Assets/Images/1F923_color.png"
+
+[node name="BaseSmile2" parent="." instance=ExtResource("2_6gosq")]
+position = Vector2(725, 177)
 
 [connection signal="pressed" from="NextOverlay/Button" to="." method="_on_button_pressed"]
