@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsbnunacmodoc"]
+
+[ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="1_scjbx"]
+[ext_resource type="PackedScene" uid="uid://emck8rhwpv3t" path="res://Objects/PokerFace.tscn" id="2_axw2m"]
+
+[node name="Level" instance=ExtResource("1_scjbx")]
+
+[node name="BaseSmile" parent="." index="1" instance=ExtResource("2_axw2m")]
+position = Vector2(927, 520)

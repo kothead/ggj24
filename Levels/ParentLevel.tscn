@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://c633s7nk7hc4w"]
+
+[ext_resource type="Script" path="res://Levels/ParentLevel.gd" id="1_hlap0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewshy"]
+size = Vector2(221.5, 1244)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyf56"]
+size = Vector2(1966.75, 106.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thahg"]
+size = Vector2(104, 1151.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny22w"]
+size = Vector2(2005.38, 103)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_hlap0")
+
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2(-108, 276)
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(361, -38)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/LeftWall"]
+position = Vector2(-361, 341)
+shape = SubResource("RectangleShape2D_ewshy")
+
+[node name="TopWall" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/TopWall"]
+position = Vector2(1090.63, -330.75)
+shape = SubResource("RectangleShape2D_xyf56")
+
+[node name="RightWall" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/RightWall"]
+position = Vector2(2080, 242.375)
+shape = SubResource("RectangleShape2D_thahg")
+
+[node name="BottomWall" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
+position = Vector2(1093.31, 858)
+shape = SubResource("RectangleShape2D_ny22w")

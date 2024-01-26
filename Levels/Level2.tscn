@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgvqlp5fd0150"]
+[gd_scene load_steps=3 format=3 uid="uid://dgvqlp5fd0150"]
 
 [ext_resource type="Script" path="res://Levels/Level2.gd" id="1_hvx4c"]
+[ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="2_tr3uf"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_hvx4c")
@@ -16,5 +17,7 @@ offset_top = 48.0
 offset_right = 74.0
 offset_bottom = 79.0
 text = "Finished"
+
+[node name="Level" parent="." instance=ExtResource("2_tr3uf")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Smile
 
 const TIME_TO_DROP_WITHOUT_MOUSE = 0.2
 const SHAKE_TIME = 0.5
@@ -24,9 +25,7 @@ signal shaking(body: Node)
 signal stop_shaking(body: Node)
 
 func _ready() -> void:
-	var new_texture = load(image_path)
-	sprite_2d.set_texture(new_texture)
-	scale = Vector2(0.116, 0.116)
+	scale = Vector2(0.3, 0.3)
 	previous_position = position
 	
 

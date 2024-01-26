@@ -9,7 +9,7 @@ var current_level_id: int = 0
 var current_level: Node2D = null
 
 var levels: Array = [
-	preload("res://Levels/Level1.tscn"),
+	preload("res://Levels/Level.tscn"),
 	preload("res://Levels/Level2.tscn")
 ]
 
