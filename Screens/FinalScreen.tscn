@@ -1,13 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfu1x6a0fskks"]
+[gd_scene load_steps=3 format=3 uid="uid://cfu1x6a0fskks"]
 
 [ext_resource type="Texture2D" uid="uid://b7pa6rjeto6qo" path="res://Assets/Images/background.png" id="1_36b2b"]
+[ext_resource type="Script" path="res://Screens/FinalScreen.gd" id="1_rt0w1"]
 
 [node name="FinalScreen" type="Node2D"]
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Win Screen"
+script = ExtResource("1_rt0w1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -15,3 +12,17 @@ position = Vector2(900, 500)
 texture = ExtResource("1_36b2b")
 region_enabled = true
 region_rect = Rect2(0, 0, 3840, 2160)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Win Screen"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 865.0
+offset_top = 486.0
+offset_right = 1017.0
+offset_bottom = 575.0
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

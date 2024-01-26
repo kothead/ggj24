@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnomwju8nnhel"]
+
+[ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="1_vpja7"]
+[ext_resource type="Script" path="res://Levels/PackageLevel.gd" id="2_ac4bk"]
+[ext_resource type="PackedScene" uid="uid://cp0b2kqrnnxgr" path="res://Objects/Package.tscn" id="2_qtvcf"]
+[ext_resource type="PackedScene" uid="uid://1yk2qdeojtn" path="res://Objects/Scissors.tscn" id="3_8xan6"]
+[ext_resource type="PackedScene" uid="uid://emck8rhwpv3t" path="res://Objects/PokerFace.tscn" id="4_r8pqn"]
+
+[node name="Level" instance=ExtResource("1_vpja7")]
+script = ExtResource("2_ac4bk")
+metadata/_edit_vertical_guides_ = [985.0]
+metadata/_edit_horizontal_guides_ = [342.0, 750.0]
+
+[node name="Package" parent="." index="2" instance=ExtResource("2_qtvcf")]
+position = Vector2(428, 344)
+
+[node name="Scissors" parent="." index="3" instance=ExtResource("3_8xan6")]
+position = Vector2(1528, 344)
+
+[node name="PokerFace" parent="." index="4" instance=ExtResource("4_r8pqn")]
+position = Vector2(992, 764)

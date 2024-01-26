@@ -10,7 +10,7 @@ var current_level: Node2D = null
 
 var levels: Array = [
 	preload("res://Levels/Level.tscn"),
-	preload("res://Levels/Level2.tscn")
+	preload("res://Levels/PackageLevel.tscn")
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -41,3 +41,11 @@ func _on_level_completed() -> void:
 	print("on level completed")
 	current_level_id += 1
 	next_overlay.visible = true
+
+
+func _process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_R) && not $NextConatiner.visible:
+		global.is_dragging = false
+		load_level(current_level_id)
+	if Input.is_key_pressed(KEY_ENTER) && $NextConatiner.visible:
+		load_level(current_level)

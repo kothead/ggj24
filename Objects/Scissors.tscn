@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://1yk2qdeojtn"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_kmfmp"]
+[ext_resource type="Texture2D" uid="uid://dogm0go8l27dx" path="res://Assets/Images/2702_color.png" id="2_tahy0"]
+
+[node name="BaseSmile" instance=ExtResource("1_kmfmp")]
+tag = "Scissors"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_tahy0")

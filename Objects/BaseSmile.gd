@@ -100,8 +100,13 @@ func _on_mouse_exited():
 
 
 func on_drop():
+	if dragging:
+		check_intersections()
 	dragging = false
 	global.is_dragging = false
+	
+
+func check_intersections():
 	for area in area_2d.get_overlapping_areas():
 		var bodies: Array = []
 		print("self " + str(tag))

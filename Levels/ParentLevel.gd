@@ -40,15 +40,20 @@ func merge_smiles(bodies: Array, names: Array, packed_smile) -> bool:
 	
 	if count == len(names):
 		for body in to_delete:
-			remove_child(body)
+			#remove_child(body)
+			body.queue_free()
+			
 	
 		var new_smile = packed_smile.instantiate()
+		add_child(new_smile)
 		connect_signals(new_smile)
 		new_smile.set_position(get_global_mouse_position())
-		add_child(new_smile)
+		var tween = create_tween()
+		tween.tween_property(new_smile, "scale", Vector2(0.35, 0.35), 0.1)
+		tween.tween_property(new_smile, "scale", Vector2(0.3, 0.3), 0.1)
 		
 		return true
 
-	return false	
+	return false
 	
 	

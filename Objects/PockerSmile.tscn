@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6u7480ei5qse"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_kdtlt"]
+
+[node name="BaseSmile" instance=ExtResource("1_kdtlt")]
+tag = "PokerFace"
