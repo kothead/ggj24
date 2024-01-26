@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://qokxbrkjeqk2"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_vf17m"]
+[ext_resource type="Texture2D" uid="uid://iij6p5l834gg" path="res://Assets/Images/1F3AE_color.png" id="2_ibluu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xfetn"]
+radius = 253.355
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qmxhh"]
+radius = 233.429
+
+[node name="BaseSmile" instance=ExtResource("1_vf17m")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 83.3333)
+shape = SubResource("CircleShape2D_xfetn")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_ibluu")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 80)
+shape = SubResource("CircleShape2D_qmxhh")
