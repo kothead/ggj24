@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgvqlp5fd0150"]
+
+[ext_resource type="Script" path="res://Levels/Level2.gd" id="1_hvx4c"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_hvx4c")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level2"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 48.0
+offset_right = 74.0
+offset_bottom = 79.0
+text = "Finished"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

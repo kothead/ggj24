@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://m56g25x3pdbs"]
+
+[ext_resource type="Script" path="res://Screens/TitleScreen.gd" id="1_w7k53"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_w7k53")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 760.0
+offset_bottom = 424.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cool Game Title"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
