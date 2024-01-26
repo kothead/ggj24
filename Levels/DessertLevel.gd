@@ -20,13 +20,14 @@ func _on_base_smile_shaked(body) -> void:
 		init_item_drop(body, droppables)
 			
 
-func _on_base_smile_intersected(bodies: Array) -> void:	
+func _on_base_smile_intersected(bodies: Array) -> void:
+	var s = "["
+	for b in bodies:
+		s += b.tag + ", "
+	print(s + "]")
 	if merge_smiles(bodies, ["Scissors", "Package"], joystickPacked):
 		pass
-	
-	print("===")
-	for body in bodies:
-		print(body.tag)
+
 	if merge_smiles(bodies, ["PokerFace", "Joystick", "Candy", "Lollipop"], roflFacePacked):
 		level_completed.emit()
 		
