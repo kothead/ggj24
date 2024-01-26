@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0pean06b0jxb"]
+[gd_scene load_steps=7 format=3 uid="uid://c0pean06b0jxb"]
 
 [ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="1_s4eek"]
-[ext_resource type="Script" path="res://Level.gd" id="2_478ak"]
+[ext_resource type="Script" path="res://Levels/HungryLevel.gd" id="2_h78dc"]
+[ext_resource type="PackedScene" uid="uid://d2a1cywxd0023" path="res://Objects/Cheese.tscn" id="3_jmvf4"]
+[ext_resource type="PackedScene" uid="uid://clto2fxvta6xb" path="res://Objects/Flatbread.tscn" id="4_ays4n"]
+[ext_resource type="PackedScene" uid="uid://ce66yyu36rwxx" path="res://Objects/MagnifyingGlass.tscn" id="5_gwbbr"]
+[ext_resource type="PackedScene" uid="uid://emck8rhwpv3t" path="res://Objects/PokerFace.tscn" id="6_1cjnf"]
 
 [node name="Level" instance=ExtResource("1_s4eek")]
-script = ExtResource("2_478ak")
+script = ExtResource("2_h78dc")
+metadata/_edit_vertical_guides_ = [982.0]
+metadata/_edit_horizontal_guides_ = [541.0]
+
+[node name="Cheese" parent="." index="2" instance=ExtResource("3_jmvf4")]
+position = Vector2(1455, 274)
+
+[node name="Flatbread" parent="." index="3" instance=ExtResource("4_ays4n")]
+position = Vector2(422, 243)
+
+[node name="MagnifyingGlass" parent="." index="4" instance=ExtResource("5_gwbbr")]
+position = Vector2(87, 989)
+
+[node name="PokerFace" parent="." index="5" instance=ExtResource("6_1cjnf")]
+position = Vector2(980, 540)

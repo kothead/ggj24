@@ -9,6 +9,8 @@ var current_level_id: int = 0
 var current_level: Node2D = null
 
 var levels: Array = [
+	preload("res://Levels/DessertLevel.tscn"),
+	preload("res://Levels/HungryLevel.tscn"),
 	preload("res://Levels/Level.tscn"),
 	preload("res://Levels/PackageLevel.tscn")
 ]
@@ -44,8 +46,8 @@ func _on_level_completed() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_key_pressed(KEY_R) && not $NextConatiner.visible:
+	if Input.is_action_just_pressed("Restart") && not $NextConatiner.visible:
 		global.is_dragging = false
 		load_level(current_level_id)
-	if Input.is_key_pressed(KEY_ENTER) && $NextConatiner.visible:
+	if Input.is_action_just_pressed("Enter") && $NextConatiner.visible:
 		load_level(current_level)

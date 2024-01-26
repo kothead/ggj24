@@ -107,14 +107,15 @@ func on_drop():
 	
 
 func check_intersections():
+	print("Self: " + tag)
 	for area in area_2d.get_overlapping_areas():
 		var bodies: Array = []
-		print("self " + str(tag))
 		bodies.append(self)
 		if area.get_parent().is_in_group("smiles"):
 			print("Adding " + str(area.get_parent().tag))
 			bodies.append(area.get_parent())
 		intersected.emit(bodies)
+	print("====")
 
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:

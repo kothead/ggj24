@@ -5,6 +5,12 @@ signal level_completed
 
 var base_smile_packed = preload("res://Objects/BaseSmile.tscn")
 
+var shakingBody
+var droppables: Array = []
+var is_shaking: bool = false
+var drop_timer: float = 0
+const DROP_THESHOLD = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var smiles = get_tree().get_nodes_in_group("smiles")
@@ -14,11 +20,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if is_shaking:
+		drop_timer += delta
+		if drop_timer >= DROP_THESHOLD:
+			drop_item()
+			drop_timer -= DROP_THESHOLD
 	
 
 func connect_signals(smile) -> void:
 	smile.intersected.connect(_on_base_smile_intersected)
+	smile.shaking.connect(_on_base_smile_shaked)
+	smile.stop_shaking.connect(_on_base_smile_stop_shaking)
 
 
 func _on_button_pressed() -> void:
@@ -28,6 +40,15 @@ func _on_button_pressed() -> void:
 
 func _on_base_smile_intersected(bodies: Array) -> void:
 	pass
+	
+	
+func _on_base_smile_shaked(body) -> void:
+	pass
+	
+	
+func _on_base_smile_stop_shaking(body) -> void:
+	is_shaking = false
+	drop_timer = 0
 	
 
 func merge_smiles(bodies: Array, names: Array, packed_smile) -> bool:
@@ -56,4 +77,43 @@ func merge_smiles(bodies: Array, names: Array, packed_smile) -> bool:
 
 	return false
 	
+	
+func enlarge_emiles(bodies: Array, name: String) -> bool:
+	var count = 0
+	var to_enlarge
+	for body in bodies:
+		if body.tag == name:
+			count += 1
+			to_enlarge = body
+		if body.tag == "MagnifyingGlass":
+			count += 1
+	
+	if count == 2:
+		var tween = create_tween()
+		var new_scale = to_enlarge.scale * 2
+		tween.tween_property(to_enlarge, "scale", Vector2(0.25, 0.25), 0.1)
+		tween.tween_property(to_enlarge, "scale", new_scale, 0.1)
+		#to_enlarge.scale = Vector2(to_enlarge.scale * 1.5)
+		return true
+
+	return false
+	
+
+func init_item_drop(body, items: Array) -> void:
+	shakingBody = body
+	droppables = items
+	
+	
+func drop_item():
+	if len(droppables) > 0:
+		var packed = droppables.pop_front()
+		var new_smile = packed.instantiate()
+		add_child(new_smile)
+		connect_signals(new_smile)
+		new_smile.set_position(shakingBody.position)
+		var tween = create_tween()
+		tween.tween_property(new_smile, "scale", Vector2(0.35, 0.35), 0.1)
+		tween.set_parallel(true)
+		tween.tween_property(new_smile, "scale", Vector2(0.3, 0.3), 0.1)
+		tween.tween_property(new_smile, "position", new_smile.position + Vector2(0, 200), 0.2).set_ease(Tween.EASE_OUT)
 	

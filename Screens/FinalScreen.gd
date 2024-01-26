@@ -8,7 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_key_pressed(KEY_ENTER) && $NextConatiner.visible:
+	if Input.is_action_just_pressed("Enter"):
+		print("Enter")
 		get_tree().quit()
 
 func _on_button_pressed() -> void:

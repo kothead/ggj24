@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c4730b8p36nu5" path="res://Assets/Images/flatbread.png" id="2_8ul2f"]
 
 [node name="BaseSmile" instance=ExtResource("1_rrxfu")]
-tag = "Flatbird"
+tag = "Flatbread"
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_8ul2f")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://2y76e4vyjip2"]
+
+[ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="1_weysa"]
+[ext_resource type="Script" path="res://Levels/DessertLevel.gd" id="2_ohv5v"]
+[ext_resource type="PackedScene" uid="uid://emck8rhwpv3t" path="res://Objects/PokerFace.tscn" id="3_lxnpv"]
+[ext_resource type="PackedScene" uid="uid://61mmlskwxmot" path="res://Objects/Pinata.tscn" id="4_mpek5"]
+[ext_resource type="PackedScene" uid="uid://cp0b2kqrnnxgr" path="res://Objects/Package.tscn" id="5_ygl25"]
+
+[node name="Level" instance=ExtResource("1_weysa")]
+script = ExtResource("2_ohv5v")
+metadata/_edit_vertical_guides_ = [988.0]
+metadata/_edit_horizontal_guides_ = [358.0]
+
+[node name="PokerFace" parent="." index="2" instance=ExtResource("3_lxnpv")]
+position = Vector2(985, 744)
+
+[node name="BaseSmile" parent="." index="3" instance=ExtResource("4_mpek5")]
+position = Vector2(491, 366)
+
+[node name="BaseSmile2" parent="." index="4" instance=ExtResource("5_ygl25")]
+position = Vector2(1461, 359)
