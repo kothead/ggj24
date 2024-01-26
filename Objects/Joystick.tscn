@@ -10,6 +10,7 @@ radius = 253.355
 radius = 233.429
 
 [node name="BaseSmile" instance=ExtResource("1_vf17m")]
+tag = "Joystick"
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0, 83.3333)

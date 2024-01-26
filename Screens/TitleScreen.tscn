@@ -1,13 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://m56g25x3pdbs"]
+[gd_scene load_steps=3 format=3 uid="uid://m56g25x3pdbs"]
 
 [ext_resource type="Script" path="res://Screens/TitleScreen.gd" id="1_w7k53"]
+[ext_resource type="Texture2D" uid="uid://b7pa6rjeto6qo" path="res://Assets/Images/background.png" id="2_w8fs3"]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_w7k53")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(900, 500)
+texture = ExtResource("2_w8fs3")
+region_enabled = true
+region_rect = Rect2(0, 0, 3840, 2160)
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
-offset_right = 760.0
-offset_bottom = 424.0
+offset_right = 1928.0
+offset_bottom = 1081.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

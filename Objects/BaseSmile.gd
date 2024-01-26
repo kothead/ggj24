@@ -20,6 +20,8 @@ var is_shaking = false
 
 @export_file("*.png") var image_path: String
 
+@export var tag: String
+
 signal intersected(bodies: Array)
 signal shaking(body: Node)
 signal stop_shaking(body: Node)
@@ -102,8 +104,10 @@ func on_drop():
 	global.is_dragging = false
 	for area in area_2d.get_overlapping_areas():
 		var bodies: Array = []
+		print("self " + str(tag))
 		bodies.append(self)
 		if area.get_parent().is_in_group("smiles"):
+			print("Adding " + str(area.get_parent().tag))
 			bodies.append(area.get_parent())
 		intersected.emit(bodies)
 
