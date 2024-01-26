@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh8sml150k3ae"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_ys7fy"]
+[ext_resource type="Texture2D" uid="uid://ds604h7nncgom" path="res://Assets/Images/zombie 2.png" id="2_7dhcr"]
+
+[node name="BaseSmile" instance=ExtResource("1_ys7fy")]
+tag = "ZombieWoman"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_7dhcr")

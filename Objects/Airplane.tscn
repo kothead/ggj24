@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://sghdeo6av6ou"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_h4kk1"]
+[ext_resource type="Texture2D" uid="uid://csrx8c83jtlss" path="res://Assets/Images/airplane.png" id="2_d7igp"]
+
+[node name="BaseSmile" instance=ExtResource("1_h4kk1")]
+tag = "Airplane"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_d7igp")

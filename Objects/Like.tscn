@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr3id8udn7gr5"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_wrgo4"]
+[ext_resource type="Texture2D" uid="uid://chaco4gj5odu2" path="res://Assets/Images/red heart (like).png" id="2_0h2sj"]
+
+[node name="BaseSmile" instance=ExtResource("1_wrgo4")]
+tag = "Like"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_0h2sj")

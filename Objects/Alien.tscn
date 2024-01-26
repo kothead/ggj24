@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cax3eyflb53v7"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_sx2ta"]
+[ext_resource type="Texture2D" uid="uid://c5wkrl32ykc28" path="res://Assets/Images/Alien.png" id="2_bx17p"]
+
+[node name="BaseSmile" instance=ExtResource("1_sx2ta")]
+tag = "Alien"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_bx17p")

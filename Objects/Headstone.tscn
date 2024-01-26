@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://blbql8xub2eip"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_xjq2m"]
+[ext_resource type="Texture2D" uid="uid://bg6r3lbt030x5" path="res://Assets/Images/headstone.png" id="2_eidse"]
+
+[node name="BaseSmile" instance=ExtResource("1_xjq2m")]
+tag = "Headstone"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_eidse")

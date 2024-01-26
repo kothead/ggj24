@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://caubwct541l45"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_oi3e3"]
+[ext_resource type="Texture2D" uid="uid://bafyhwflkhuq4" path="res://Assets/Images/robot2.png" id="2_b3ypm"]
+
+[node name="BaseSmile" instance=ExtResource("1_oi3e3")]
+tag = "RobotHuman"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_b3ypm")

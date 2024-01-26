@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1x3hp4mup7gs"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_cl5xf"]
+[ext_resource type="Texture2D" uid="uid://bck3hq8l511i1" path="res://Assets/Images/magic wand.png" id="2_lxdeq"]
+
+[node name="BaseSmile" instance=ExtResource("1_cl5xf")]
+tag = "MagicWand"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_lxdeq")

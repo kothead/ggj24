@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://boarrx40itxgc"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_tqdxq"]
+[ext_resource type="Texture2D" uid="uid://b2k27b4hgvxp0" path="res://Assets/Images/poodle.png" id="2_17ln8"]
+
+[node name="BaseSmile" instance=ExtResource("1_tqdxq")]
+tag = "Poodle"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_17ln8")

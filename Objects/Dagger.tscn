@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqlroq1qf0dl4"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_gs1ip"]
+[ext_resource type="Texture2D" uid="uid://c4pwqkwx0b27g" path="res://Assets/Images/dagger.png" id="2_od606"]
+
+[node name="BaseSmile" instance=ExtResource("1_gs1ip")]
+tag = "Dagger"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_od606")
