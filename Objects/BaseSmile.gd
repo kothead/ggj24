@@ -1,15 +1,22 @@
+@tool
 extends Node2D
-
 
 var draggable: bool = false
 var offset: Vector2
 	
 @export_file("*.png") var image_path: String
 
+signal intersected(bodies: Array)
 
 func _ready() -> void:
 	var new_texture = load(image_path)
 	$Sprite2D.set_texture(new_texture)
+	
+
+func set_texture(image_path: String) -> void:
+	var new_texture = load(image_path)
+	$Sprite2D.set_texture(new_texture)
+
 	
 func _process(delta: float) -> void:
 	if draggable and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -27,7 +34,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			global.is_dragging = false
 			draggable = false
 			for area in $Area2D.get_overlapping_areas():
-				print(area.get_parent())
+				var bodies: Array = []
+				if area.get_parent().is_in_group("droppable"):
+					bodies.append(area.get_parent())
+				intersected.emit(bodies)
 
 
 func _on_area_2d_mouse_entered() -> void:

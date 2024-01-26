@@ -23,9 +23,13 @@ offset_bottom = 74.0
 text = "Finished"
 
 [node name="BaseSmile" parent="." instance=ExtResource("2_6gosq")]
+position = Vector2(253, 238)
 image_path = "res://Assets/Images/1F923_color.png"
 
 [node name="BaseSmile2" parent="." instance=ExtResource("2_6gosq")]
 position = Vector2(725, 177)
+image_path = "res://Assets/Images/1F923_color.png"
 
 [connection signal="pressed" from="NextOverlay/Button" to="." method="_on_button_pressed"]
+[connection signal="intersected" from="BaseSmile" to="." method="_on_base_smile_intersected"]
+[connection signal="intersected" from="BaseSmile2" to="." method="_on_base_smile_intersected"]
