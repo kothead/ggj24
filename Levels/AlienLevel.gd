@@ -25,22 +25,28 @@ func _on_base_smile_shaked(body) -> void:
 
 
 func _on_base_smile_intersected(bodies: Array) -> void:
-	if merge_smiles(bodies, ["Airplane", "Gear"], spaceShipPacked):
+	if merge_smiles(bodies, ["Airplane", "Gear"], spaceShipPacked, 1, 
+					"res://Assets/Sounds/airplane+gear.mp3"):
 		pass
 		
-	if merge_smiles(bodies, ["SpaceShip", "Alien"], flyiingSaurcerPacked):
+	if merge_smiles(bodies, ["SpaceShip", "Alien"], flyiingSaurcerPacked, 1,
+					"res://Assets/Sounds/alien+spaceshuttle.mp3"):
 		pass
 	
 	if spawn_item(bodies, "FlyingSaucer", false,
 						  "AlienMonster", true, 
-						   hundredPointsPacked):
+						   hundredPointsPacked,
+						   "res://Assets/Sounds/flying saucer+alien monster.mp3"):
 		pass
 		
-	if merge_smiles(bodies, ["PokerFace", "HundredPoints"], happyFacePacked):
+	if merge_smiles(bodies, ["PokerFace", "HundredPoints"], happyFacePacked, 1,
+					"res://Assets/Sounds/hundred points+char.mp3"):
 		pass
 	
-	if merge_smiles(bodies, ["HappyFace", "HundredPoints"], smilyFacePacked):
+	if merge_smiles(bodies, ["HappyFace", "HundredPoints"], smilyFacePacked, 1,
+					"res://Assets/Sounds/hundred points+char.mp3"):
 		pass
 	
-	if merge_smiles(bodies, ["SmilyFace", "HundredPoints"], roflFacePacked):
+	if merge_smiles(bodies, ["SmilyFace", "HundredPoints"], roflFacePacked, 1,
+				   "res://Assets/Sounds/hundred points+char.mp3"):
 		level_completed.emit()

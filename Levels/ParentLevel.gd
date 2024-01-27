@@ -13,6 +13,8 @@ var is_shaking: bool = false
 var drop_timer: float = 0
 const DROP_THESHOLD = 1
 
+var sounds_dict = {}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var smiles = get_tree().get_nodes_in_group("smiles")
@@ -53,8 +55,19 @@ func _on_base_smile_stop_shaking(body) -> void:
 	is_shaking = false
 	drop_timer = 0
 	
+	
+func play_sound(path: String) -> void:
+	if path:
+		if $AudioStreamPlayer2D.is_playing():
+			$AudioStreamPlayer2D.stop()
+		if path not in sounds_dict:
+			sounds_dict[path] = load(path)
+		$AudioStreamPlayer2D.stream = sounds_dict[path]
+		$AudioStreamPlayer2D.play()
+	
 
-func merge_smiles(bodies: Array, names: Array, packed_smile, amount: int = 1) -> bool:
+func merge_smiles(bodies: Array, names: Array, packed_smile, amount: int = 1,
+				sound: String = "") -> bool:
 	var count = 0
 	var to_delete = []
 	for body in bodies:
@@ -71,6 +84,9 @@ func merge_smiles(bodies: Array, names: Array, packed_smile, amount: int = 1) ->
 		for i in range(0, amount):
 			var new_smile = packed_smile.instantiate()
 			add_child(new_smile)
+			
+			play_sound(sound)
+			
 			connect_signals(new_smile)
 			new_smile.set_position(get_global_mouse_position() + Vector2(100, 100) * i);
 			var tween = create_tween()
@@ -97,6 +113,7 @@ func enlarge_emiles(bodies: Array, name: String) -> bool:
 		var new_scale = to_enlarge.scale * 2
 		tween.tween_property(to_enlarge, "scale", Vector2(0.25, 0.25), 0.1)
 		tween.tween_property(to_enlarge, "scale", new_scale, 0.1)
+		play_sound("res://Assets/Sounds/zoom in.mp3")
 		#to_enlarge.scale = Vector2(to_enlarge.scale * 1.5)
 		return true
 
@@ -175,7 +192,8 @@ func on_tween_finished():
 func spawn_item(bodies,
 				name1: String, del1: bool,
 				name2: String, del2: bool,
-				packed_smile):
+				packed_smile,
+				audio_path:String = ""):
 	
 	var count = 0
 	var to_delete = []
@@ -198,6 +216,8 @@ func spawn_item(bodies,
 		var new_smile = packed_smile.instantiate()
 		add_child(new_smile)
 		connect_signals(new_smile)
+		
+		play_sound(audio_path)
 		
 		new_smile.set_position(start_position)
 		var tween = create_tween()

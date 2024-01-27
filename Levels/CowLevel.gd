@@ -12,7 +12,8 @@ func _on_base_smile_intersected(bodies: Array) -> void:
 	if merge_smiles(bodies, ["FlyingSaucer", "Cow"], detectivePacked):
 		pass
 		
-	if spawn_item(bodies, "FlyingSaucer", false, "Camera", true, picturePacked):
+	if spawn_item(bodies, "FlyingSaucer", false, "Camera", true, picturePacked,
+				  "res://Assets/Sounds/camera+all.mp3"):
 		pass
 		
 	if merge_smiles(bodies, ["Detective", "Picture"], moneyPacked):

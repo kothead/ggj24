@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv41saekg6nj5"
+path="res://.godot/imported/robot+pizza or video game.mp3-9bf20bb86da5d7c92565720acd438cf7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/robot+pizza or video game.mp3"
+dest_files=["res://.godot/imported/robot+pizza or video game.mp3-9bf20bb86da5d7c92565720acd438cf7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

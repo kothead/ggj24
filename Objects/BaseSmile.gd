@@ -26,6 +26,8 @@ var isShaked = false
 @export var tag: String
 @export var can_move: bool = true
 
+@export_file("*.mp3") var spawn_sound: String
+
 signal intersected(bodies: Array)
 signal shaking(body: Node)
 signal stop_shaking(body: Node)
@@ -34,6 +36,9 @@ signal stop_shaking(body: Node)
 func _ready() -> void:
 	scale = Vector2(0.3, 0.3)
 	previous_position = position
+	if spawn_sound:
+		$AudioStreamPlayer2D.stream = load(spawn_sound)
+		$AudioStreamPlayer2D.play()
 	
 
 func set_texture(image_path: String) -> void:

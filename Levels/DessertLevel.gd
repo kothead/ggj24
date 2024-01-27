@@ -22,21 +22,31 @@ func _on_base_smile_shaked(body) -> void:
 			
 
 func _on_base_smile_intersected(bodies: Array) -> void:
-	if merge_smiles(bodies, ["Scissors", "Package"], joystickPacked):
+	if merge_smiles(bodies, ["Scissors", "Package"], joystickPacked, 1,
+					"res://Assets/Sounds/scissors+package.mp3"):
 		pass
 	
-	if merge_smiles(bodies, ["PokerFace", "Joystick"], happyFacePacked) \
-			or merge_smiles(bodies, ["PokerFace", "Candy"], happyFacePacked) \
-			or merge_smiles(bodies, ["PokerFace", "Lollipop"], happyFacePacked):
+	if merge_smiles(bodies, ["PokerFace", "Joystick"], happyFacePacked, 1,
+					"res://Assets/Sounds/videogame+char.mp3") \
+			or merge_smiles(bodies, ["PokerFace", "Candy"], happyFacePacked, 1,
+							"res://Assets/Sounds/lollipopcandy+char.mp3") \
+			or merge_smiles(bodies, ["PokerFace", "Lollipop"], happyFacePacked, 1,
+							"res://Assets/Sounds/lollipopcandy+char.mp3"):
 		pass
 
-	if merge_smiles(bodies, ["HappyFace", "Joystick"], smilyFacePacked) \
-			or merge_smiles(bodies, ["HappyFace", "Candy"], smilyFacePacked) \
-			or merge_smiles(bodies, ["HappyFace", "Lollipop"], smilyFacePacked):
+	if merge_smiles(bodies, ["HappyFace", "Joystick"], smilyFacePacked, 1,
+					"res://Assets/Sounds/videogame+char.mp3") \
+			or merge_smiles(bodies, ["HappyFace", "Candy"], smilyFacePacked, 1,
+							"res://Assets/Sounds/lollipopcandy+char.mp3") \
+			or merge_smiles(bodies, ["HappyFace", "Lollipop"], smilyFacePacked, 1,
+							"res://Assets/Sounds/lollipopcandy+char.mp3"):
 		pass
 
-	if merge_smiles(bodies, ["SmilyFace", "Joystick"], roflFacePacked) \
-			or merge_smiles(bodies, ["SmilyFace", "Candy"], roflFacePacked) \
-			or merge_smiles(bodies, ["SmilyFace", "Lollipop"], roflFacePacked):
+	if merge_smiles(bodies, ["SmilyFace", "Joystick"], roflFacePacked, 1,
+					"res://Assets/Sounds/videogame+char.mp3") \
+			or merge_smiles(bodies, ["SmilyFace", "Candy"], roflFacePacked, 1,
+							"res://Assets/Sounds/lollipopcandy+char.mp3") \
+			or merge_smiles(bodies, ["SmilyFace", "Lollipop"], roflFacePacked, 1,
+							"res://Assets/Sounds/lollipopcandy+char.mp3"):
 		level_completed.emit()
 		

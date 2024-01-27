@@ -9,10 +9,12 @@ var stage = Stages.None
 
 func _on_base_smile_intersected(bodies: Array) -> void:
 	if stage == Stages.None:
-		if merge_smiles(bodies, ["Scissors", "Package"], joystickPacked):
+		if merge_smiles(bodies, ["Scissors", "Package"], joystickPacked, 1,
+						"res://Assets/Sounds/scissors+package.mp3"):
 			stage = Stages.Game
 				
 	if stage == Stages.Game:
-		if merge_smiles(bodies, ["PokerFace", "Joystick"], roflFacePacked):
+		if merge_smiles(bodies, ["PokerFace", "Joystick"], roflFacePacked, 1,
+						"res://Assets/Sounds/videogame+char.mp3"):
 			stage = Stages.Rofl
 			level_completed.emit()

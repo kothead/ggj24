@@ -5,6 +5,7 @@
 
 [node name="BaseSmile" instance=ExtResource("1_x0x8t")]
 tag = "Lizard"
+spawn_sound = "res://Assets/Sounds/lizard.mp3"
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_bw8i3")
