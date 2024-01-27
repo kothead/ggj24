@@ -11,6 +11,7 @@ var current_level_id: int = 0
 var current_level: Node2D = null
 
 var levels: Array = [
+	preload("res://Levels/SocialMediaLevel.tscn"),
 	preload("res://Levels/DessertLevel.tscn"),
 	preload("res://Levels/HungryLevel.tscn"),
 	preload("res://Levels/Level.tscn"),

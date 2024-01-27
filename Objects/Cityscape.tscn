@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0omlgxofqlfv"]
+[gd_scene load_steps=5 format=3 uid="uid://d0omlgxofqlfv"]
 
 [ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_dqhc5"]
 [ext_resource type="Texture2D" uid="uid://bug8rdhg2w5l7" path="res://Assets/Images/cityscape at dusk.png" id="2_i51ql"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ce8j7"]
+size = Vector2(543.333, 541.667)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyhtn"]
+size = Vector2(523.333, 526.667)
+
 [node name="BaseSmile" instance=ExtResource("1_dqhc5")]
 tag = "Cityscape"
+can_move = false
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(5, -5.83331)
+shape = SubResource("RectangleShape2D_ce8j7")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_i51ql")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-5, 3.33333)
+shape = SubResource("RectangleShape2D_oyhtn")

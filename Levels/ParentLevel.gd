@@ -5,6 +5,8 @@ signal level_completed
 
 var base_smile_packed = preload("res://Objects/BaseSmile.tscn")
 
+var animated_body
+
 var shakingBody
 var droppables: Array = []
 var is_shaking: bool = false
@@ -116,4 +118,84 @@ func drop_item():
 		tween.set_parallel(true)
 		tween.tween_property(new_smile, "scale", Vector2(0.3, 0.3), 0.1)
 		tween.tween_property(new_smile, "position", new_smile.position + Vector2(0, 200), 0.2).set_ease(Tween.EASE_OUT)
+	
+
+func spawn_boar(bodies,
+				name1: String, del1: bool,
+				name2: String, del2: bool,
+				packed_smile):
+	
+	var count = 0
+	var to_delete = []
+	var start_position
+	for body in bodies:
+		if body.tag == name1:
+			if del1:
+				to_delete.append(body)
+			count += 1
+			start_position = body.position
+		if body.tag == name2:
+			if del2:
+				to_delete.append(body)
+			count += 1
+	
+	if count == 2:
+		for body in to_delete:
+			body.queue_free()
+		
+		var new_smile = packed_smile.instantiate()
+		add_child(new_smile)
+		connect_signals(new_smile)
+		
+		new_smile.set_position(start_position)
+		var new_position = start_position - Vector2(1920, 0)
+		var tween = create_tween()
+		tween.tween_property(new_smile, "scale", Vector2(0.35, 0.35), 0.1)
+		tween.tween_property(new_smile, "scale", Vector2(0.3, 0.3), 0.1)
+		tween.tween_property(new_smile, "position", new_position, 5).connect("finished", on_tween_finished)
+		animated_body = new_smile
+		return true
+
+	return false
+	
+func on_tween_finished():
+	if animated_body:
+		animated_body.queue_free()
+		animated_body = null
+		
+		
+func spawn_item(bodies,
+				name1: String, del1: bool,
+				name2: String, del2: bool,
+				packed_smile):
+	
+	var count = 0
+	var to_delete = []
+	var start_position
+	for body in bodies:
+		if body.tag == name1:
+			if del1:
+				to_delete.append(body)
+			count += 1
+			start_position = body.position
+		if body.tag == name2:
+			if del2:
+				to_delete.append(body)
+			count += 1
+	
+	if count == 2:
+		for body in to_delete:
+			body.queue_free()
+		
+		var new_smile = packed_smile.instantiate()
+		add_child(new_smile)
+		connect_signals(new_smile)
+		
+		new_smile.set_position(start_position)
+		var tween = create_tween()
+		tween.tween_property(new_smile, "scale", Vector2(0.35, 0.35), 0.1)
+		tween.tween_property(new_smile, "scale", Vector2(0.3, 0.3), 0.1)
+		return true
+
+	return false
 	

@@ -21,10 +21,12 @@ var is_shaking = false
 @export_file("*.png") var image_path: String
 
 @export var tag: String
+@export var can_move: bool = true
 
 signal intersected(bodies: Array)
 signal shaking(body: Node)
 signal stop_shaking(body: Node)
+
 
 func _ready() -> void:
 	scale = Vector2(0.3, 0.3)
@@ -37,6 +39,9 @@ func set_texture(image_path: String) -> void:
 	
 
 func process_shaking(delta: float, distance: float, speeds: Array):
+	if not can_move:
+		return
+		
 	for i in range(len(speeds) - 1, -1, -1):
 		var speed = speeds[i]
 		speed[1] += delta
@@ -54,6 +59,9 @@ func process_shaking(delta: float, distance: float, speeds: Array):
 
 
 func _physics_process(delta):
+	if not can_move:
+		return
+	
 	if dragging:
 		if mouse_left_for > TIME_TO_DROP_WITHOUT_MOUSE:
 			on_drop()
@@ -84,6 +92,9 @@ func detect_shaking(delta: float):
 
 
 func _process(delta: float) -> void:
+	if not can_move:
+		return
+		
 	if not mouse_on:
 		mouse_left_for += delta
 	
@@ -91,11 +102,17 @@ func _process(delta: float) -> void:
 
 
 func _on_mouse_entered():
+	if not can_move:
+		return
+		
 	mouse_on = true
 	mouse_left_for = 0
 
 
 func _on_mouse_exited():
+	if not can_move:
+		return
+		
 	mouse_on = false
 
 
@@ -116,6 +133,9 @@ func check_intersections():
 
 
 func _on_input_event(viewport, event, shape_idx):
+	if not can_move:
+		return
+	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if not global.is_dragging:
@@ -124,3 +144,4 @@ func _on_input_event(viewport, event, shape_idx):
 				previous_mouse_position = get_global_mouse_position()
 		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
 			on_drop()
+			
