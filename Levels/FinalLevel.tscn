@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://oxoljxts4tki"]
+
+[ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="1_g5fmm"]
+[ext_resource type="PackedScene" uid="uid://emck8rhwpv3t" path="res://Objects/PokerFace.tscn" id="2_sk1q1"]
+[ext_resource type="Script" path="res://Levels/FinalLevel.gd" id="2_w50nc"]
+[ext_resource type="PackedScene" uid="uid://dia34botobdaq" path="res://Objects/Computer.tscn" id="3_qp0tv"]
+
+[node name="Level" instance=ExtResource("1_g5fmm")]
+script = ExtResource("2_w50nc")
+
+[node name="PokerFace" parent="." index="2" instance=ExtResource("2_sk1q1")]
+position = Vector2(963, 646)
+
+[node name="Computer" parent="." index="3" instance=ExtResource("3_qp0tv")]
+position = Vector2(963, 234)

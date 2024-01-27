@@ -15,15 +15,16 @@ var rofl_tween_enter
 var rofl_tween_rotate
 
 var levels: Array = [
-	preload("res://Levels/CowLevel.tscn"),
-	preload("res://Levels/RobotLevel.tscn"),
-	preload("res://Levels/AlienLevel.tscn"),
-	preload("res://Levels/DessertLevel.tscn"),
-	preload("res://Levels/AnimalsLevel.tscn"),
-	preload("res://Levels/SocialMediaLevel.tscn"),
-	preload("res://Levels/HungryLevel.tscn"),
 	preload("res://Levels/Level.tscn"),
-	preload("res://Levels/PackageLevel.tscn")
+	preload("res://Levels/PackageLevel.tscn"),
+	preload("res://Levels/HungryLevel.tscn"),
+	preload("res://Levels/DessertLevel.tscn"),
+	preload("res://Levels/SocialMediaLevel.tscn"),
+	preload("res://Levels/AnimalsLevel.tscn"),
+	preload("res://Levels/AlienLevel.tscn"),
+	preload("res://Levels/RobotLevel.tscn"),
+	preload("res://Levels/CowLevel.tscn"),
+	preload("res://Levels/FinalLevel.tscn")
 ]
 
 # Called when the node enters the scene tree for the first time.

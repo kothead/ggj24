@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsl7hlss2wsq"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_qx7s7"]
+[ext_resource type="Texture2D" uid="uid://c2oukg8vj657f" path="res://Assets/Images/ggj00-roundlogo-900x900.png" id="2_m3mq1"]
+
+[node name="BaseSmile" instance=ExtResource("1_qx7s7")]
+tag = "GGJ"
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_m3mq1")

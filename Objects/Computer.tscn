@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dia34botobdaq"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_y2a4k"]
+[ext_resource type="Texture2D" uid="uid://b16mcb23ic237" path="res://Assets/Images/1F5A5_color.png" id="2_c21ry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b78xi"]
+size = Vector2(500, 500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71kis"]
+size = Vector2(500, 500)
+
+[node name="BaseSmile" instance=ExtResource("1_y2a4k")]
+tag = "Computer"
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_b78xi")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_c21ry")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_71kis")
