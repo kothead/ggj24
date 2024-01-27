@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7asdjb0hmg08"]
 
 [ext_resource type="Script" path="res://Screens/Unicorns.gd" id="1_7xs13"]
-[ext_resource type="SpriteFrames" uid="uid://chlnviqt2x5mb" path="res://unicorn_frames.tres" id="2_4ex7c"]
+[ext_resource type="SpriteFrames" uid="uid://djq4mo0uw8r4a" path="res://unicorn_frames.tres" id="2_4ex7c"]
 
 [node name="Unicorns" type="Node2D"]
 script = ExtResource("1_7xs13")
