@@ -15,7 +15,7 @@ var hundredPointsPacked = load("res://Objects/HundredPoints.tscn")
 
 func _ready() -> void:
 	super._ready()
-	droppables = [alientPacked, alienMonsterPacked, airplanePacked]
+	droppables = [alientPacked, alienMonsterPacked, airplanePacked, alienMonsterPacked, alienMonsterPacked]
 	
 
 func _on_base_smile_shaked(body) -> void:
@@ -31,8 +31,16 @@ func _on_base_smile_intersected(bodies: Array) -> void:
 	if merge_smiles(bodies, ["SpaceShip", "Alien"], flyiingSaurcerPacked):
 		pass
 	
-	if merge_smiles(bodies, ["FlyingSaucer", "AlienMonster"], hundredPointsPacked):
+	if spawn_item(bodies, "FlyingSaucer", false,
+						  "AlienMonster", true, 
+						   hundredPointsPacked):
 		pass
 		
-	if merge_smiles(bodies, ["PokerFace", "HundredPoints"], roflFacePacked):
+	if merge_smiles(bodies, ["PokerFace", "HundredPoints"], happyFacePacked):
+		pass
+	
+	if merge_smiles(bodies, ["HappyFace", "HundredPoints"], smilyFacePacked):
+		pass
+	
+	if merge_smiles(bodies, ["SmilyFace", "HundredPoints"], roflFacePacked):
 		level_completed.emit()

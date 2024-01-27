@@ -1,0 +1,31 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfdtwk0530ppr"]
+
+[ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="1_jfcv6"]
+[ext_resource type="Script" path="res://Levels/RobotLevel.gd" id="2_yetao"]
+[ext_resource type="PackedScene" uid="uid://dlyiiieq0k3t3" path="res://Objects/Robot.tscn" id="3_h6ltp"]
+[ext_resource type="PackedScene" uid="uid://cqlroq1qf0dl4" path="res://Objects/Dagger.tscn" id="4_lva6e"]
+[ext_resource type="PackedScene" uid="uid://qokxbrkjeqk2" path="res://Objects/Joystick.tscn" id="5_wkat0"]
+[ext_resource type="PackedScene" uid="uid://blbql8xub2eip" path="res://Objects/Headstone.tscn" id="6_pq2bi"]
+[ext_resource type="PackedScene" uid="uid://dy8ael0cx5a47" path="res://Objects/Shovel.tscn" id="7_odp42"]
+[ext_resource type="PackedScene" uid="uid://du2arm78e4geq" path="res://Objects/Pizza.tscn" id="8_81bt0"]
+
+[node name="Level" instance=ExtResource("1_jfcv6")]
+script = ExtResource("2_yetao")
+
+[node name="Robot" parent="." index="2" instance=ExtResource("3_h6ltp")]
+position = Vector2(619, 219)
+
+[node name="Dagger" parent="." index="3" instance=ExtResource("4_lva6e")]
+position = Vector2(1526, 808)
+
+[node name="Joystick" parent="." index="4" instance=ExtResource("5_wkat0")]
+position = Vector2(1133, 550)
+
+[node name="Headstone" parent="." index="5" instance=ExtResource("6_pq2bi")]
+position = Vector2(695, 774)
+
+[node name="Shovel" parent="." index="6" instance=ExtResource("7_odp42")]
+position = Vector2(1619, 325)
+
+[node name="BaseSmile" parent="." index="7" instance=ExtResource("8_81bt0")]
+position = Vector2(325, 529)

@@ -15,6 +15,9 @@ var y_speeds: Array = []
 var previous_position: Vector2
 var is_shaking = false
 
+var isShaked = false
+@export var isOneTimeShakable: bool = false
+
 @onready var sprite_2d = $Sprite2D
 @onready var area_2d = $Area2D
 

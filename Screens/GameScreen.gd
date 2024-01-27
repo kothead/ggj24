@@ -15,7 +15,8 @@ var rofl_tween_enter
 var rofl_tween_rotate
 
 var levels: Array = [
-	preload("res://Levels/AlienLevel.tscn"),
+	preload("res://Levels/RobotLevel.tscn"),
+	preload("res://Levels/AlienLevel.tscn"),	
 	preload("res://Levels/DessertLevel.tscn"),
 	preload("res://Levels/AnimalsLevel.tscn"),
 	preload("res://Levels/SocialMediaLevel.tscn"),	

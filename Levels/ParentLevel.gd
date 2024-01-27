@@ -49,15 +49,16 @@ func _on_base_smile_shaked(body) -> void:
 	
 	
 func _on_base_smile_stop_shaking(body) -> void:
+	shakingBody = null
 	is_shaking = false
 	drop_timer = 0
 	
 
-func merge_smiles(bodies: Array, names: Array, packed_smile) -> bool:
+func merge_smiles(bodies: Array, names: Array, packed_smile, amount: int = 1) -> bool:
 	var count = 0
 	var to_delete = []
 	for body in bodies:
-		if body.tag  in names:
+		if body.tag in names:
 			count += 1
 			to_delete.append(body)
 	
@@ -67,13 +68,14 @@ func merge_smiles(bodies: Array, names: Array, packed_smile) -> bool:
 			body.queue_free()
 			
 	
-		var new_smile = packed_smile.instantiate()
-		add_child(new_smile)
-		connect_signals(new_smile)
-		new_smile.set_position(get_global_mouse_position())
-		var tween = create_tween()
-		tween.tween_property(new_smile, "scale", Vector2(0.35, 0.35), 0.1)
-		tween.tween_property(new_smile, "scale", Vector2(0.3, 0.3), 0.1)
+		for i in range(0, amount):
+			var new_smile = packed_smile.instantiate()
+			add_child(new_smile)
+			connect_signals(new_smile)
+			new_smile.set_position(get_global_mouse_position() + Vector2(100, 100) * i);
+			var tween = create_tween()
+			tween.tween_property(new_smile, "scale", Vector2(0.35, 0.35), 0.1)
+			tween.tween_property(new_smile, "scale", Vector2(0.3, 0.3), 0.1)
 		
 		return true
 
@@ -107,6 +109,9 @@ func init_item_drop(body, items: Array) -> void:
 	
 	
 func drop_item():
+	if shakingBody.isOneTimeShakable && shakingBody.isShaked:
+		return
+		
 	if len(droppables) > 0:
 		var packed = droppables.pop_front()
 		var new_smile = packed.instantiate()
@@ -119,6 +124,9 @@ func drop_item():
 		tween.tween_property(new_smile, "scale", Vector2(0.3, 0.3), 0.1)
 		tween.tween_property(new_smile, "position", new_smile.position + Vector2(0, 200), 0.2).set_ease(Tween.EASE_OUT)
 	
+	if len(droppables) == 0 and shakingBody.isOneTimeShakable:
+		shakingBody.isShaked = true
+		
 
 func spawn_boar(bodies,
 				name1: String, del1: bool,

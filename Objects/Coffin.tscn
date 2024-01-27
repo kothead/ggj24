@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://u652lnb13qm8"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_qrwj4"]
+[ext_resource type="Texture2D" uid="uid://rksxwnenhbyi" path="res://Assets/Images/26B0_color.png" id="2_gbed5"]
+
+[node name="BaseSmile" instance=ExtResource("1_qrwj4")]
+isOneTimeShakable = true
+tag = "Coffin"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_gbed5")
