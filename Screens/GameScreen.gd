@@ -3,9 +3,8 @@ extends Node2D
 
 @onready var level_container: Node2D = $LevelContainer
 @onready var next_overlay: Node2D = $NextConatiner
-@onready var left_unicorn = $NextConatiner/LeftUnicorn
-@onready var right_unicorn = $NextConatiner/RightUnicorn
 @onready var rofl = $NextConatiner/Rofl
+@onready var unicorns = $NextConatiner/Unicorns
 
 
 var current_level_id: int = 0
@@ -59,8 +58,7 @@ func _on_level_completed() -> void:
 	print("on level completed")
 	current_level_id += 1
 	next_overlay.visible = true
-	left_unicorn.play("unicorn_show")
-	right_unicorn.play("unicorn_show")
+	unicorns.play()
 	show_rofl()
 
 
@@ -75,6 +73,7 @@ func show_rofl():
 		.bind_node(rofl) \
 		.set_trans(Tween.TRANS_CUBIC)
 	rofl_tween_enter.tween_property(rofl, "scale", Vector2(1.0, 1.0), 1)
+	rofl_tween_enter.tween_callback(func(): can_go_next_level = true)
 	
 	rofl.rotation = 0
 	rofl_tween_rotate = get_tree().create_tween().bind_node(rofl) \
@@ -89,13 +88,3 @@ func _process(delta: float) -> void:
 		load_level(current_level_id)
 	if Input.is_action_just_pressed("Enter") && $NextConatiner.visible:
 		load_level(current_level)
-
-
-func _on_left_unicorn_animation_finished():
-	left_unicorn.play("unicorn_loop")
-	can_go_next_level = true
-
-
-func _on_right_unicorn_animation_finished():
-	right_unicorn.play("unicorn_loop")
-	can_go_next_level = true

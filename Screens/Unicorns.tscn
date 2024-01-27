@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7asdjb0hmg08"]
+
+[ext_resource type="Script" path="res://Screens/Unicorns.gd" id="1_7xs13"]
+[ext_resource type="SpriteFrames" uid="uid://chlnviqt2x5mb" path="res://unicorn_frames.tres" id="2_4ex7c"]
+
+[node name="Unicorns" type="Node2D"]
+script = ExtResource("1_7xs13")
+
+[node name="LeftUnicorn" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(480, 540)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("2_4ex7c")
+animation = &"unicorn_show"
+
+[node name="RightUnicorn" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1440, 540)
+scale = Vector2(-4, 4)
+sprite_frames = ExtResource("2_4ex7c")
+animation = &"unicorn_loop"
+
+[connection signal="animation_finished" from="LeftUnicorn" to="." method="_on_left_unicorn_animation_finished"]
+[connection signal="animation_finished" from="RightUnicorn" to="." method="_on_right_unicorn_animation_finished"]

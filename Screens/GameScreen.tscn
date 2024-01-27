@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://xcpwirkd8khl"]
 
 [ext_resource type="Script" path="res://Screens/GameScreen.gd" id="1_6qmit"]
-[ext_resource type="SpriteFrames" uid="uid://chlnviqt2x5mb" path="res://unicorn_frames.tres" id="2_ruwx2"]
 [ext_resource type="Texture2D" uid="uid://2xe4xibfv3so" path="res://Assets/Images/1F923_color.png" id="3_iaqpv"]
+[ext_resource type="PackedScene" uid="uid://c7asdjb0hmg08" path="res://Screens/Unicorns.tscn" id="3_siwjo"]
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_6qmit")
@@ -11,23 +11,8 @@ script = ExtResource("1_6qmit")
 
 [node name="NextConatiner" type="Node2D" parent="."]
 
-[node name="LeftUnicorn" type="AnimatedSprite2D" parent="NextConatiner"]
-texture_filter = 1
-position = Vector2(480, 540)
-scale = Vector2(4, 4)
-sprite_frames = ExtResource("2_ruwx2")
-animation = &"unicorn_show"
-
-[node name="RightUnicorn" type="AnimatedSprite2D" parent="NextConatiner"]
-texture_filter = 1
-position = Vector2(1440, 540)
-scale = Vector2(-4, 4)
-sprite_frames = ExtResource("2_ruwx2")
-animation = &"unicorn_loop"
-
 [node name="Rofl" type="Sprite2D" parent="NextConatiner"]
 position = Vector2(960, 240)
 texture = ExtResource("3_iaqpv")
 
-[connection signal="animation_finished" from="NextConatiner/LeftUnicorn" to="." method="_on_left_unicorn_animation_finished"]
-[connection signal="animation_finished" from="NextConatiner/RightUnicorn" to="." method="_on_right_unicorn_animation_finished"]
+[node name="Unicorns" parent="NextConatiner" instance=ExtResource("3_siwjo")]
