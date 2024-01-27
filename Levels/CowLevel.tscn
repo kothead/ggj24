@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlpulgyrc8krw"]
+
+[ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="1_f3t8c"]
+[ext_resource type="Script" path="res://Levels/CowLevel.gd" id="2_uovyc"]
+[ext_resource type="PackedScene" uid="uid://srn17x1j1b85" path="res://Objects/FlyingSaucer.tscn" id="3_adlnl"]
+[ext_resource type="PackedScene" uid="uid://dlnxxaok0ch0y" path="res://Objects/Cow.tscn" id="4_4qxpl"]
+[ext_resource type="PackedScene" uid="uid://emck8rhwpv3t" path="res://Objects/PokerFace.tscn" id="5_lsyi5"]
+[ext_resource type="PackedScene" uid="uid://dbx11xbaxje8s" path="res://Objects/Camera.tscn" id="6_3t04l"]
+
+[node name="Level" instance=ExtResource("1_f3t8c")]
+script = ExtResource("2_uovyc")
+
+[node name="FlyingSaurcer" parent="." index="2" instance=ExtResource("3_adlnl")]
+position = Vector2(513, 717)
+
+[node name="Cow" parent="." index="3" instance=ExtResource("4_4qxpl")]
+position = Vector2(1540, 909)
+
+[node name="PokerFace" parent="." index="4" instance=ExtResource("5_lsyi5")]
+position = Vector2(955, 502)
+
+[node name="Camera" parent="." index="5" instance=ExtResource("6_3t04l")]
+position = Vector2(1363, 234)

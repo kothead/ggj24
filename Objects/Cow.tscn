@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlnxxaok0ch0y"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_k752m"]
+[ext_resource type="Texture2D" uid="uid://g1jbml2y3kyu" path="res://Assets/Images/1F404_color.png" id="2_gx126"]
+
+[node name="BaseSmile" instance=ExtResource("1_k752m")]
+tag = "Cow"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_gx126")

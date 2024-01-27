@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://riu6b4opo3jg"]
+
+[ext_resource type="PackedScene" uid="uid://b4go3ap0ka8qe" path="res://Objects/BaseSmile.tscn" id="1_su4mn"]
+[ext_resource type="Texture2D" uid="uid://cwarlunmjk3a7" path="res://Assets/Images/1F4B5_color.png" id="2_up6to"]
+
+[node name="BaseSmile" instance=ExtResource("1_su4mn")]
+tag = "Money"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_up6to")
