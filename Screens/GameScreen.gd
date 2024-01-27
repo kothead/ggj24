@@ -9,6 +9,7 @@ extends Node2D
 
 var current_level_id: int = 0
 var current_level: Node2D = null
+var can_go_next_level = false
 
 var levels: Array = [
 	preload("res://Levels/AlienLevel.tscn"),
@@ -26,6 +27,8 @@ func _ready() -> void:
 
 
 func load_level(level_id) -> void:
+	can_go_next_level = false
+	
 	if current_level_id == len(levels):
 		get_tree().change_scene_to_file("res://Screens/FinalScreen.tscn")
 		return
@@ -40,8 +43,10 @@ func load_level(level_id) -> void:
 	next_overlay.visible = false
 
 
-func _on_button_pressed() -> void:
-	load_level(current_level)
+func _unhandled_input(event):
+	if can_go_next_level and event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			load_level(current_level)
 	
 	
 func _on_level_completed() -> void:
@@ -62,7 +67,9 @@ func _process(delta: float) -> void:
 
 func _on_left_unicorn_animation_finished():
 	left_unicorn.play("unicorn_loop")
+	can_go_next_level = true
 
 
 func _on_right_unicorn_animation_finished():
 	right_unicorn.play("unicorn_loop")
+	can_go_next_level = true
