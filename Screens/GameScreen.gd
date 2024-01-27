@@ -5,11 +5,14 @@ extends Node2D
 @onready var next_overlay: Node2D = $NextConatiner
 @onready var left_unicorn = $NextConatiner/LeftUnicorn
 @onready var right_unicorn = $NextConatiner/RightUnicorn
+@onready var rofl = $NextConatiner/Rofl
 
 
 var current_level_id: int = 0
 var current_level: Node2D = null
 var can_go_next_level = false
+var rofl_tween_enter
+var rofl_tween_rotate
 
 var levels: Array = [
 	preload("res://Levels/AlienLevel.tscn"),
@@ -55,6 +58,26 @@ func _on_level_completed() -> void:
 	next_overlay.visible = true
 	left_unicorn.play("unicorn_show")
 	right_unicorn.play("unicorn_show")
+	show_rofl()
+
+
+func show_rofl():
+	if rofl_tween_enter:
+		rofl_tween_enter.kill()
+	if rofl_tween_rotate:
+		rofl_tween_rotate.kill()
+	
+	rofl.scale = Vector2(0, 0)
+	rofl_tween_enter = get_tree().create_tween() \
+		.bind_node(rofl) \
+		.set_trans(Tween.TRANS_CUBIC)
+	rofl_tween_enter.tween_property(rofl, "scale", Vector2(1.0, 1.0), 1)
+	
+	rofl.rotation = 0
+	rofl_tween_rotate = get_tree().create_tween().bind_node(rofl) \
+		.set_trans(Tween.TRANS_LINEAR) \
+		.set_loops()
+	rofl_tween_rotate.tween_property(rofl, "rotation", 2 * PI, 3).from_current()
 
 
 func _process(delta: float) -> void:
