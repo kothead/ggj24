@@ -13,7 +13,6 @@ var packed = [
 	load("res://Objects/Candy.tscn"),
 	load("res://Objects/Cat.tscn"),
 	load("res://Objects/Cheese.tscn"),
-	load("res://Objects/Cityscape.tscn"),
 	load("res://Objects/Coffin.tscn"),
 	load("res://Objects/Computer.tscn"),
 	load("res://Objects/Cow.tscn"),

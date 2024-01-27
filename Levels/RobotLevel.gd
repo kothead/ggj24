@@ -24,7 +24,7 @@ func _on_base_smile_intersected(bodies: Array) -> void:
 				  "res://Assets/Sounds/zombie+dagger.mp3"):
 		pass
 		
-	if spawn_item(bodies, "ZombieWoman", true, "Dagger", false, heartPacked,
+	elif spawn_item(bodies, "ZombieWoman", true, "Dagger", false, heartPacked,
 				  "res://Assets/Sounds/zombie+dagger.mp3"):
 		pass
 		
@@ -34,7 +34,7 @@ func _on_base_smile_intersected(bodies: Array) -> void:
 							"res://Assets/Sounds/robot+organ.mp3"):
 		pass
 		
-	if merge_smiles(bodies, ["RobotHuman", "Brain"], pokerFacePacked, 1,
+	elif merge_smiles(bodies, ["RobotHuman", "Brain"], pokerFacePacked, 1,
 					"res://Assets/Sounds/robot+organ.mp3") \
 			or merge_smiles(bodies, ["RobotHuman", "Heart"], pokerFacePacked, 1,
 					"res://Assets/Sounds/robot+organ.mp3"):
@@ -43,13 +43,13 @@ func _on_base_smile_intersected(bodies: Array) -> void:
 	if merge_smiles(bodies, ["PokerFace", "Pizza"], smilyFacePacked, 1,
 					"res://Assets/Sounds/pizza+char.mp3") \
 			or merge_smiles(bodies, ["PokerFace", "Joystick"], smilyFacePacked, 1,
-							"res://Assets/Sounds/videogame+char.mp3"):
+							"res://Assets/Sounds/8-bit-game-2-186976.mp3"):
 		pass
 		
-	if merge_smiles(bodies, ["SmilyFace", "Pizza"], roflFacePacked, 1,
+	elif merge_smiles(bodies, ["SmilyFace", "Pizza"], roflFacePacked, 1,
 					"res://Assets/Sounds/pizza+char.mp3") \
 			or merge_smiles(bodies, ["SmilyFace", "Joystick"], roflFacePacked, 1,
-							"res://Assets/Sounds/videogame+char.mp3"):
+							"res://Assets/Sounds/8-bit-game-2-186976.mp3"):
 		level_completed.emit()
 
 

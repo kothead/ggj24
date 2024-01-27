@@ -27,7 +27,7 @@ func _on_base_smile_intersected(bodies: Array) -> void:
 		pass
 	
 	if merge_smiles(bodies, ["PokerFace", "Joystick"], happyFacePacked, 1,
-					"res://Assets/Sounds/videogame+char.mp3") \
+					"res://Assets/Sounds/8-bit-game-2-186976.mp3") \
 			or merge_smiles(bodies, ["PokerFace", "Candy"], happyFacePacked, 1,
 							"res://Assets/Sounds/lollipopcandy+char.mp3") \
 			or merge_smiles(bodies, ["PokerFace", "Lollipop"], happyFacePacked, 1,
@@ -35,7 +35,7 @@ func _on_base_smile_intersected(bodies: Array) -> void:
 		pass
 
 	if merge_smiles(bodies, ["HappyFace", "Joystick"], smilyFacePacked, 1,
-					"res://Assets/Sounds/videogame+char.mp3") \
+					"res://Assets/Sounds/8-bit-game-2-186976.mp3") \
 			or merge_smiles(bodies, ["HappyFace", "Candy"], smilyFacePacked, 1,
 							"res://Assets/Sounds/lollipopcandy+char.mp3") \
 			or merge_smiles(bodies, ["HappyFace", "Lollipop"], smilyFacePacked, 1,
@@ -43,7 +43,7 @@ func _on_base_smile_intersected(bodies: Array) -> void:
 		pass
 
 	if merge_smiles(bodies, ["SmilyFace", "Joystick"], roflFacePacked, 1,
-					"res://Assets/Sounds/videogame+char.mp3") \
+					"res://Assets/Sounds/8-bit-game-2-186976.mp3") \
 			or merge_smiles(bodies, ["SmilyFace", "Candy"], roflFacePacked, 1,
 							"res://Assets/Sounds/lollipopcandy+char.mp3") \
 			or merge_smiles(bodies, ["SmilyFace", "Lollipop"], roflFacePacked, 1,

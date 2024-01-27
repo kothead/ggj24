@@ -56,6 +56,7 @@ func _unhandled_input(event):
 	
 func _on_level_completed() -> void:
 	print("on level completed")
+	$AudioStreamPlayer2D.play()
 	current_level_id += 1
 	next_overlay.visible = true
 	unicorns.play()
