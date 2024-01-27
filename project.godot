@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="GGJ24"
+config/name="😐👉🤣"
 run/main_scene="res://Screens/TitleScreen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://ggj24-icon.png"
 
 [autoload]
 
