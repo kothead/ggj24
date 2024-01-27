@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://xcpwirkd8khl"]
+[gd_scene load_steps=7 format=3 uid="uid://xcpwirkd8khl"]
 
 [ext_resource type="Script" path="res://Screens/GameScreen.gd" id="1_6qmit"]
 [ext_resource type="Texture2D" uid="uid://2xe4xibfv3so" path="res://Assets/Images/1F923_color.png" id="3_iaqpv"]
 [ext_resource type="PackedScene" uid="uid://c7asdjb0hmg08" path="res://Screens/Unicorns.tscn" id="3_siwjo"]
 [ext_resource type="AudioStream" uid="uid://bt16xxue3fckn" path="res://Assets/Sounds/videogame+char.mp3" id="4_2lr2j"]
+[ext_resource type="Texture2D" uid="uid://dhjfdb2rgn770" path="res://Assets/Images/1F10E_color.png" id="5_x0tsu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gx8f"]
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_6qmit")
@@ -20,3 +23,13 @@ texture = ExtResource("3_iaqpv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_2lr2j")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.2, 0.2)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7gx8f")
+icon = ExtResource("5_x0tsu")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

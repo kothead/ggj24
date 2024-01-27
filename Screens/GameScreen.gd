@@ -89,3 +89,8 @@ func _process(delta: float) -> void:
 		load_level(current_level_id)
 	if Input.is_action_just_pressed("Enter") && $NextConatiner.visible:
 		load_level(current_level)
+
+
+func _on_button_pressed() -> void:
+	global.is_dragging = false
+	load_level(current_level_id)
