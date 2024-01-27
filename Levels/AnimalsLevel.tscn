@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv45j3qep8kyc"]
+
+[ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="1_vcr3t"]
+[ext_resource type="Script" path="res://Levels/AnimalsLevel.gd" id="2_2pfj4"]
+[ext_resource type="PackedScene" uid="uid://emck8rhwpv3t" path="res://Objects/PokerFace.tscn" id="3_nhn7x"]
+[ext_resource type="PackedScene" uid="uid://d1x3hp4mup7gs" path="res://Objects/MagicWand.tscn" id="4_sf1x6"]
+
+[node name="Level" instance=ExtResource("1_vcr3t")]
+script = ExtResource("2_2pfj4")
+
+[node name="PokerFace" parent="." index="2" instance=ExtResource("3_nhn7x")]
+position = Vector2(1400, 552)
+
+[node name="BaseSmile" parent="." index="3" instance=ExtResource("4_sf1x6")]
+position = Vector2(574, 536)

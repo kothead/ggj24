@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://clw311vcofujx"]
+
+[ext_resource type="PackedScene" uid="uid://c633s7nk7hc4w" path="res://Levels/ParentLevel.tscn" id="1_tjhvi"]
+[ext_resource type="Script" path="res://Levels/AlienLevel.gd" id="2_4ncyt"]
+[ext_resource type="PackedScene" uid="uid://3j0ulnlfi1af" path="res://Objects/FloppyDisk.tscn" id="3_5ardo"]
+[ext_resource type="PackedScene" uid="uid://b4kealmi0464a" path="res://Objects/Gear.tscn" id="4_ryl40"]
+[ext_resource type="PackedScene" uid="uid://emck8rhwpv3t" path="res://Objects/PokerFace.tscn" id="5_f278p"]
+
+[node name="Level" instance=ExtResource("1_tjhvi")]
+script = ExtResource("2_4ncyt")
+
+[node name="Floppy" parent="." index="2" instance=ExtResource("3_5ardo")]
+position = Vector2(355, 208)
+
+[node name="Gear" parent="." index="3" instance=ExtResource("4_ryl40")]
+position = Vector2(1378, 321)
+
+[node name="PokerFace" parent="." index="4" instance=ExtResource("5_f278p")]
+position = Vector2(955, 491)
