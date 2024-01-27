@@ -74,6 +74,7 @@ func _physics_process(delta):
 			previous_mouse_position = mouse_position
 			move_and_slide()
 
+
 func detect_shaking(delta: float):
 	var dx = position.x - previous_position.x
 	var dy = position.y - previous_position.y
@@ -141,10 +142,18 @@ func _on_input_event(viewport, event, shape_idx):
 	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if not global.is_dragging:
+			if not global.is_dragging and is_on_top():
 				global.is_dragging = true
 				dragging = true
 				previous_mouse_position = get_global_mouse_position()
+				move_to_front()
 		elif event.button_index == MOUSE_BUTTON_LEFT and !event.pressed:
 			on_drop()
 			
+
+func is_on_top():
+	for area in area_2d.get_overlapping_areas():
+		if area.get_parent().is_in_group("smiles"):
+			if not is_greater_than(area.get_parent()):
+				return false
+	return true
