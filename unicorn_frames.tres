@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://chlnviqt2x5mb"]
+
+[ext_resource type="Texture2D" uid="uid://bd2617nwiron" path="res://Assets/Images/unicorn-sheet.png" id="1_44vwu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y41fv"]
+atlas = ExtResource("1_44vwu")
+region = Rect2(240, 540, 240, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j01sk"]
+atlas = ExtResource("1_44vwu")
+region = Rect2(480, 540, 240, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibuqp"]
+atlas = ExtResource("1_44vwu")
+region = Rect2(0, 0, 240, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwfk6"]
+atlas = ExtResource("1_44vwu")
+region = Rect2(240, 0, 240, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k30u"]
+atlas = ExtResource("1_44vwu")
+region = Rect2(480, 0, 240, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt5na"]
+atlas = ExtResource("1_44vwu")
+region = Rect2(0, 270, 240, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4sf4"]
+atlas = ExtResource("1_44vwu")
+region = Rect2(240, 270, 240, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t3xd"]
+atlas = ExtResource("1_44vwu")
+region = Rect2(480, 270, 240, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h2a7"]
+atlas = ExtResource("1_44vwu")
+region = Rect2(0, 540, 240, 270)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y41fv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j01sk")
+}],
+"loop": true,
+"name": &"unicorn_loop",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibuqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwfk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k30u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt5na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4sf4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t3xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h2a7")
+}],
+"loop": false,
+"name": &"unicorn_show",
+"speed": 12.0
+}]
