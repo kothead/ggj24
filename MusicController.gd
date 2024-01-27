@@ -8,3 +8,7 @@ func _ready() -> void:
 
 func play_music():
 	$AudioStreamPlayer2D.play()
+	
+	
+func stop():
+	$AudioStreamPlayer2D.stop()

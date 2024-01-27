@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfu1x6a0fskks"]
+[gd_scene load_steps=5 format=3 uid="uid://cfu1x6a0fskks"]
 
 [ext_resource type="Texture2D" uid="uid://b7pa6rjeto6qo" path="res://Assets/Images/background.png" id="1_36b2b"]
 [ext_resource type="Script" path="res://Screens/FinalScreen.gd" id="1_rt0w1"]
 [ext_resource type="Texture2D" uid="uid://bhblm3phqagvr" path="res://Assets/Images/partying.png" id="3_w7rq2"]
+[ext_resource type="AudioStream" uid="uid://cgds2rmdmy72c" path="res://Assets/Sounds/success-fanfare-trumpets-6185.mp3" id="4_a57kc"]
 
 [node name="FinalScreen" type="Node2D"]
 script = ExtResource("1_rt0w1")
@@ -21,5 +22,8 @@ wait_time = 2.0
 position = Vector2(1000, 500)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_w7rq2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a57kc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

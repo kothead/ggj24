@@ -10,7 +10,8 @@ var unicorns_herd: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#_on_timer_timeout()
+	MusicController.stop()
+	$AudioStreamPlayer2D.play()
 	
 	var tween = get_tree().create_tween().bind_node(partying_face) \
 		.set_loops() \
