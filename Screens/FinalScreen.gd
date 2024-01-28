@@ -31,8 +31,11 @@ func _process(delta: float) -> void:
 		unicorns.position = Vector2(x, y)
 	
 	if Input.is_action_just_pressed("Enter") or Input.is_action_just_pressed("exit"):
-		print("Enter")
-		get_tree().quit()
+		if OS.get_name() == "Web":
+			var titleScreen = preload("res://Screens/TitleScreen.tscn")
+			get_tree().change_scene_to_packed(titleScreen)
+		else:
+			get_tree().quit()
 
 
 func _on_button_pressed() -> void:
