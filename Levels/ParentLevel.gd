@@ -70,10 +70,12 @@ func merge_smiles(bodies: Array, names: Array, packed_smile, amount: int = 1,
 				sound: String = "") -> bool:
 	var count = 0
 	var to_delete = []
+	var found_tags = []
 	for body in bodies:
-		if body.tag in names:
+		if body.tag in names and body.tag not in found_tags:
 			count += 1
 			to_delete.append(body)
+			found_tags.append(body.tag)
 	
 	if count == len(names):
 		for body in to_delete:
@@ -198,16 +200,19 @@ func spawn_item(bodies,
 	var count = 0
 	var to_delete = []
 	var start_position
+	var found_tags = []
 	for body in bodies:
-		if body.tag == name1:
+		if body.tag == name1 and body.tag not in found_tags:
 			if del1:
 				to_delete.append(body)
 			count += 1
 			start_position = body.position
-		if body.tag == name2:
+			found_tags.append(body.tag)
+		if body.tag == name2 and body.tag not in found_tags:
 			if del2:
 				to_delete.append(body)
 			count += 1
+			found_tags.append(body.tag)
 	
 	if count == 2:
 		for body in to_delete:
